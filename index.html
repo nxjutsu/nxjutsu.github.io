@@ -175,8 +175,8 @@
       <div class="custom-done" id="cDone" hidden>
         <div class="done-ic small">✓</div>
         <div>
-          <b>¡Listo! Se abrió el chat de @nxjutsu con tu pedido.</b>
-          <p>Si el mensaje no aparece escrito, ya está copiado: mantené apretado el campo de texto y tocá <b>Pegar</b>. <span id="cFotoNote">Después adjuntá tu foto de referencia desde la galería, con el ícono de imagen del chat.</span></p>
+          <b>¡Tu mensaje ya está copiado! Se abrió el chat de @nxjutsu.</b>
+          <p><b>Pegalo en el chat</b> y tocá Enviar. En el celular: mantené apretado donde dice "Enviar mensaje…" y tocá <b>Pegar</b>. En la compu: clic en "Enviar mensaje…" y <b>Ctrl + V</b> (en Mac, <b>Cmd + V</b>). <span id="cFotoNote">Después adjuntá tu foto de referencia desde la galería, con el ícono de imagen del chat.</span></p>
           <div class="custom-done-actions">
             <button type="button" class="btn btn-ghost" id="cShare" hidden>Compartir la foto por Instagram</button>
             <button type="button" class="btn btn-ghost" id="cCopy">Copiar el mensaje de nuevo</button>
@@ -424,8 +424,13 @@
           <div class="done-ic">✓</div>
           <h4>¡Pedido armado!</h4>
           <p>Pedido <b id="orderId"></b></p>
-          <p class="done-txt">Último paso: tocá el botón y se abre el chat de <b>@nxjutsu</b> con tu pedido escrito. Solo tenés que tocar <b>Enviar</b>. Si no aparece, ya está copiado: mantené apretado el campo de texto y tocá <b>Pegar</b>. Te respondemos con los datos para pagar.</p>
-          <a class="btn btn-primary btn-block" id="sendIg" href="https://ig.me/m/nxjutsu" target="_blank" rel="noopener">Enviar pedido a @nxjutsu</a>
+          <p class="done-txt">Último paso: mandanos el pedido por Instagram y te respondemos con los datos para pagar.</p>
+          <ol class="paste-steps">
+            <li><span>1</span><div>Tocá el botón rojo: <b>copia tu pedido</b> y abre el chat de <b>@nxjutsu</b>.</div></li>
+            <li><span>2</span><div><b>Pegá el pedido</b> en el chat (si ya aparece escrito, saltealo):<small><b>En el celular:</b> mantené apretado donde dice "Enviar mensaje…" y tocá <b>Pegar</b>.</small><small><b>En la compu:</b> hacé clic en "Enviar mensaje…" y apretá <b>Ctrl + V</b> (en Mac, <b>Cmd + V</b>).</small></div></li>
+            <li><span>3</span><div>Tocá <b>Enviar</b>. ¡Listo!</div></li>
+          </ol>
+          <a class="btn btn-primary btn-block" id="sendIg" href="https://ig.me/m/nxjutsu" target="_blank" rel="noopener">Copiar pedido y abrir Instagram</a>
           <button class="btn btn-ghost btn-block" id="copyOrder">Copiar el pedido de nuevo</button>
           <pre class="order-text" id="orderText"></pre>
         </div>
