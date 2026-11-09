@@ -403,7 +403,7 @@ $('#sucLink').addEventListener('click', e => {
 });
 $('#sendIg').addEventListener('click', () => {
   copy($('#orderText').textContent);
-  toast('Pedido copiado: si no aparece en el chat, pegalo');
+  toast('✓ Pedido copiado. Pegalo en el chat y tocá Enviar');
 });
 $('#copyOrder').addEventListener('click', async () => { toast(await copy($('#orderText').textContent) ? 'Pedido copiado' : 'No se pudo copiar, seleccionalo a mano'); });
 document.addEventListener('keydown', e => {
