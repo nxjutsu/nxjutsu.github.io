@@ -168,6 +168,9 @@ function addToCart() {
 function renderCart() {
   const n = cart.reduce((s, i) => s + i.qty, 0);
   $('#cartCount').textContent = n;
+  $('#cartFab').hidden = n === 0;
+  $('#cartFabN').textContent = n;
+  $('#cartFabT').textContent = money(subtotal());
   $('#cartEmpty').hidden = cart.length > 0;
   $('#cartItems').innerHTML = cart.map((it, i) => `
     <div class="citem">
@@ -381,6 +384,7 @@ document.addEventListener('click', e => {
 });
 $('#pmAdd').addEventListener('click', addToCart);
 $('#openCart').addEventListener('click', () => { goStep(step === 4 ? 0 : step); openOverlay('#cartOverlay'); });
+$('#cartFab').addEventListener('click', () => $('#openCart').click());
 $('#stepNext').addEventListener('click', next);
 $('#stepBack').addEventListener('click', () => goStep(Math.max(0, step - 1)));
 $('#burger').addEventListener('click', () => { $('#burger').classList.toggle('on'); $('#nav').classList.toggle('on'); });
