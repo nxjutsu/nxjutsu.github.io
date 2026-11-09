@@ -310,6 +310,8 @@ a.contact-card:hover{border-color:var(--accent);transform:translateY(-2px)}
 .ship-box b{color:var(--text)}
 .ship-box a{color:var(--accent2);font-weight:600}
 .cuotas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:-6px 0 18px}
+.cuotas-tit{grid-column:1/-1;margin:0 0 2px;font-size:13px;color:var(--muted)}
+.pm-transfer b{color:var(--text)}
 .cuota{border:1.5px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center;cursor:pointer;transition:.15s}
 .cuota.on{border-color:var(--text);background:rgba(255,255,255,.04)}
 .cuota b{display:block;font-size:13px}
