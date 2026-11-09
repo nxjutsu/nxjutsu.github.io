@@ -13,7 +13,7 @@ const CONFIG = {
     buzo:   [ { id: 'algodon', label: 'Algodón' } ],
   },
   talles: ['14', '16', 'XS', 'S', 'M', 'L', 'XL'],
-  mercadoPago: { recargo: 0.15, cuotasMax: 3 },  // 15% de recargo con link de pago
+  mercadoPago: { recargo: 0.25, cuotasMax: 3 },  // 25% de recargo con tarjeta (link de pago)
   // Envío estimado con Correo Argentino desde Córdoba (paquete hasta 1 kg).
   // Ajustá estos valores con tu tarifa de MiCorreo / Paq.ar.
   envio: {
@@ -139,6 +139,7 @@ function syncProduct() {
   $('#pmImg').alt = `${tipoLabel[p.tipo]} ${p.nombre} ${color}`;
   $('#pmColorName').textContent = color;
   $('#pmPrice').textContent = money(CONFIG.precios[p.tipo][calidad]);
+  { const pr = CONFIG.precios[p.tipo][calidad], mx = CONFIG.mercadoPago.cuotasMax; $('#pmCuotas').innerHTML = `Precio por transferencia · o <b>${mx} cuotas de ${money((pr + roundUp(pr * CONFIG.mercadoPago.recargo, 10)) / mx)}</b> con tarjeta`; }
   $$('#pmCalidad .pill').forEach(b => b.classList.toggle('on', b.dataset.cal === calidad));
   $$('#pmColor .swatch').forEach(b => b.classList.toggle('on', b.dataset.color === color));
   $$('#pmTalle .pill').forEach(b => b.classList.toggle('on', b.dataset.talle === talle));
@@ -248,7 +249,7 @@ function renderCuotas() {
   $('#cuotas').hidden = !show; if (!show) return;
   const base = subtotal() + (costoEnvio(getModo(), $('#fProv').value) || 0);
   const tot = base + roundUp(base * CONFIG.mercadoPago.recargo, 10);
-  $('#cuotas').innerHTML = Array.from({ length: CONFIG.mercadoPago.cuotasMax }, (_, i) => i + 1).map(n =>
+  $('#cuotas').innerHTML = `<p class="cuotas-tit">Elegí en cuántas cuotas pagar (ya incluye el ${Math.round(CONFIG.mercadoPago.recargo * 100)}% de recargo)</p>` + Array.from({ length: CONFIG.mercadoPago.cuotasMax }, (_, i) => i + 1).map(n =>
     `<div class="cuota${n === cuotas ? ' on' : ''}" data-cuotas="${n}"><b>${n} ${n === 1 ? 'pago' : 'cuotas'}</b><span>${money(tot / n)}</span><small>${n > 1 ? 'por mes' : 'total'}</small></div>`).join('');
 }
 
